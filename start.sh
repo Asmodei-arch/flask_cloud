@@ -16,11 +16,10 @@ fi
 # Install pip into virtual environment
 if [ ! -f $VIRTUALENV/bin/pip ]; then
   curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | $VIRTUALENV/bin/python
-  curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | $VIRTUALENV/bin/python
 fi
 
 # Install the requirements
-$VIRTUALENV/bin/poetry install
+$VIRTUALENV/bin/pip install -r requirements.txt
 
 # Run your glorious application
 $VIRTUALENV/bin/python3 server.py
